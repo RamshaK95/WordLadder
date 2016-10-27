@@ -4,7 +4,8 @@
 #include<string>
 #include<algorithm>
 using namespace std;
-bool canChange(string  strA, string strB)
+
+bool canChange(string  strA, string strB)//determines if the change of a single alphabet transforms one word into the other
 {
 	string letter;
 	int dif = 0;
@@ -35,7 +36,7 @@ bool canChange(string  strA, string strB)
 }
 void main()
 {
-	vector < vector<string>> records;
+	vector < vector<string>> records;//holds all words that differ by a single alphabet
 	fstream file;
 	file.open("sample.txt");
 	string data;
@@ -124,7 +125,7 @@ void main()
 				even++;//cout << "The word contains " << count << " lowercase characters" << endl;
 			}
 		}
-		//file.close();
+		file.close();
 		cout << total;
 
 
@@ -133,10 +134,14 @@ void main()
 	{
 		cout << "Couldn't open file.\n";
 	}
+	//vector <string> a  = { "cat", "cap", "cart" };
 	for (int i = 0; i < words.size(); i++)
 	{
-		length = words[i].length();
 		vector<string> temp;
+		length = words.size();
+		temp.push_back(words[i]);
+		//length = words[i].length();
+		
 		for (int j = 0; j < words.size(); j++)
 		{
 			if (length == words[j].length())
@@ -157,19 +162,25 @@ void main()
 
 
 
-	int x = words.size();
-	cout << words.size();
+	//int x = words.size();
+	//cout << words.size();
 
-	for (int i = 0; i < x; i++)
+	//for (int i = 0; i < x; i++)
 	{
-		cout << i << " : " << words[i] << endl;
+	//	cout << i << " : " << words[i] << endl;
 
 	}
 
-	for (int i = 0;i< records.size(); i++)
-		
-		for (int j = 0; j < records[j].size(); j++)
-			cout << records[i][j] << " _______________";
+	for (int i = 0;i < records.size(); i++)
+	{
+		int j = 0;
+		while (j < records[i].size())
+		{
+			cout << records[i][j] << "______";
+			j++;
+		}
+		cout << endl;
+	}
 	cin >> line_count;
 
 	return;
